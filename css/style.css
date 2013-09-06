@@ -43,6 +43,16 @@ body {
 	pointer-events: none;
 }
 
+.spinner {
+	
+	background-image: url(../img/spinner.svg) center no-repeat;
+    	-webkit-animation: rotate 1.5s infinite steps(12);
+    	   -moz-animation: rotate 1.5s infinite steps(12);
+    	    -ms-animation: rotate 1.5s infinite steps(12);
+    	     -o-animation: rotate 1.5s infinite steps(12);
+    	        animation: rotate 1.5s infinite steps(12);
+}
+
 .nav-bar {
 	position: absolute;
 	top:0;
@@ -97,7 +107,7 @@ body {
 }
 .left-nav-btn.arrow {
 	padding-left: 23px;
-	background-image: url(../img/backBtn.png);
+	background-image: url(../img/backBtn.svg);
 	background-position: left bottom;
 }
 .right-nav-btn {
@@ -107,7 +117,7 @@ body {
 }
 .right-nav-btn.arrow {
 	padding-right: 23px;
-	background-image: url(../img/nextBtn.png);
+	background-image: url(../img/nextBtn.svg);
 	background-position: right bottom;
 }
 
@@ -296,7 +306,7 @@ li .light {
 	padding:10px 0 5px 0;
 }
 .arrowed .innerLi  {
-	background-image: url(../img/listArrow.png);
+	background-image: url(../img/listArrow.svg);
 	background-size: 15px 15px;
 	background-repeat: no-repeat;
 	background-position: right center;
