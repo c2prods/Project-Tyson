@@ -12,6 +12,8 @@ html, body {
 
 body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
 	font-size: 18px;
 	margin: 0;
 	padding: 0;
