@@ -261,13 +261,13 @@ body {
 input, textarea {
 	display: block;
 	position: relative;
-	width: 91%;
+	width: 90.6%;
     -webkit-appearance: none;
     font-weight: 300;
     border-radius: 0;
     box-shadow: 0;
-    padding: 6px 3% 6px 0;
-    margin-left: 6%;
+    padding: 6px 4.7% 6px 0;
+    margin-left: 4.7%;
     background-color: transparent;
     -webkit-tap-highlight-color:transparent;
 	background-image: linear-gradient(0deg, rgb(200, 199, 204), rgb(200, 199, 204) 50%, transparent 50%);
