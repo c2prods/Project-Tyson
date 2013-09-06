@@ -41,6 +41,16 @@ body {
 	pointer-events: none;
 }
 
+.spinner {
+	
+	background-image: url(../img/spinner.svg) center no-repeat;
+    	-webkit-animation: rotate 1.5s infinite steps(12);
+    	   -moz-animation: rotate 1.5s infinite steps(12);
+    	    -ms-animation: rotate 1.5s infinite steps(12);
+    	     -o-animation: rotate 1.5s infinite steps(12);
+    	        animation: rotate 1.5s infinite steps(12);
+}
+
 .nav-bar {
 	position: absolute;
 	top:0;
