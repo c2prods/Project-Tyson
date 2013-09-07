@@ -10,7 +10,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 } 
 button {
-	background-color: transparent; /* Fix for Chrome */
+	background: transparent; /* Fix for Chrome and Firefox OS */
 }
 :focus {
     outline: 0;
