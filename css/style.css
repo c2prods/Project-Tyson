@@ -168,7 +168,7 @@ h1 {
 section .scroll, section .scrollMask, section header button, section h1, section,  header button .label {
 	-webkit-animation-fill-mode: forwards;
 	        animation-fill-mode: forwards;
-	-webkit-animation-duration: 4000ms;
+	-webkit-animation-duration: 400ms;
 	        animation-duration: 400ms;
 }
 section .scroll, section .scrollMask, section h1, section,  section header button .label {
