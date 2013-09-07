@@ -1,10 +1,34 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, textarea { margin: 0; padding: 0; border: 0; outline: 0; font-weight: inherit; font-style: inherit; font-size: 100%; font-family: inherit; vertical-align: baseline; } 
-:focus { outline: 0; } 
-ol, ul { list-style: none; } 
-table { border-collapse: separate; border-spacing: 0; } 
-caption, th, td { text-align: left; font-weight: normal; } 
-blockquote:before, blockquote:after, q:before, q:after { content: ""; } 
-blockquote, q { quotes: "" ""; } 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+} 
+:focus {
+    outline: 0;
+} 
+ol, ul {
+    list-style: none;
+} 
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+} 
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+} 
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+} 
+blockquote, q {
+    quotes: "" "";
+} 
 
 html, body {
 	overflow: hidden;
@@ -17,11 +41,11 @@ body {
 	font-size: 18px;
 	margin: 0;
 	padding: 0;
-	height: 100%;
 	overflow: hidden;
 	position: relative;
 	word-wrap: break-word;
 	-webkit-text-size-adjust: none;
+	        text-size-adjust: none;
 	height: 100%;
 	font-weight: 300;
 	line-height: 1;
@@ -44,8 +68,7 @@ body {
 }
 
 .spinner {
-	
-	background-image: url(../img/spinner.svg) center no-repeat;
+	background: url(../img/spinner.svg) center no-repeat;
     	-webkit-animation: rotate 1.5s infinite steps(12);
     	   -moz-animation: rotate 1.5s infinite steps(12);
     	    -ms-animation: rotate 1.5s infinite steps(12);
@@ -67,6 +90,8 @@ body {
 	background-position: bottom;
 	z-index: 10;
 	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
 	-webkit-touch-callout: none;
 }
 .nav-btn {
@@ -74,14 +99,13 @@ body {
 	top: 0;
 	display: inline-block;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
-	line-height: 1em;
 	font-size: 17px;
 	color:rgb(21, 125, 251);
 	padding: 0;
 	font-weight: 300;
 	height: 44px;
 	line-height: 44px;
-	text-overflow: ellipsis !important;
+	text-overflow: ellipsis !important; /* why so !important ? */
 	max-width: 140px;
 }
 .nav-btn:active {
@@ -126,129 +150,270 @@ body {
 	padding: 0;
 	text-align: center;
 	font-size: 17px;
-	margin: 0;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	-webkit-box-flex: 1;
-	box-flex: 1;
+	   -moz-box-flex: 1;
+	        box-flex: 1;
 	margin: 0 65px;
 	font-weight: 500;
-    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .view .scroll, .view .scrollMask, .view .nav-btn, .view .textbox, .view,  .view .nav-btn .label {
 	-webkit-animation-fill-mode: forwards;
-	-webkit-animation-duration:400ms;
+	        animation-fill-mode: forwards;
+	-webkit-animation-duration: 400ms;
+	        animation-duration: 400ms;
 }
 .view .scroll, .view .scrollMask, .view .textbox, .view,  .view .nav-btn .label {
 	-webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
+	        animation-timing-function: cubic-bezier(.1, .7, .1, 1);
 }
 .slin .nav-btn, .srin .nav-btn {
 	-webkit-animation-timing-function: cubic-bezier(.6, .1, .3, 1);
+	        animation-timing-function: cubic-bezier(.6, .1, .3, 1);
 }
 .slout .nav-btn, .srout .nav-btn {
 	-webkit-animation-timing-function: cubic-bezier(.1, 1, .1, 1);
+	        animation-timing-function: cubic-bezier(.1, 1, .1, 1);
+}
+.slin .scroll, .slin .scrollMask {
+    -webkit-animation-name: slin-scroll;
+            animation-name: slin-scroll;
+}
+.slin .textbox {
+    -webkit-animation-name: slin-textbox;
+            animation-name: slin-textbox;
+}
+.slin .nav-btn {
+    -webkit-animation-name: fadein;
+            animation-name: fadein;
+}
+.slin .left-nav-btn.arrow .label {
+    -webkit-animation-name: slin-left-nav-btn;
+            animation-name: slin-left-nav-btn;
+}
+.slin .nav-bar, .slin .scroll {
+    background-color: transparent;
+}
+.slout .nav-btn {
+    -webkit-animation-name: fadeout;
+            animation-name: fadeout;
+}
+.slout .left-nav-btn.arrow .label {
+    -webkit-animation-name: slout-left-nav-btn;
+            animation-name: slout-left-nav-btn;
+}
+.slout .textbox {
+    -webkit-animation-name: slout-textbox;
+            animation-name: slout-textbox;
+}
+.slout .scroll, .slout .scrollMask {
+    -webkit-animation-name: slout-scroll;
+            animation-name: slout-scroll;
 }
 
-.slin .scroll, .slin .scrollMask { -webkit-animation-name: slin-scroll; }
-.slin .textbox { -webkit-animation-name: slin-textbox; }
-.slin .nav-btn { -webkit-animation-name: fadein; }
-.slin .left-nav-btn.arrow .label { -webkit-animation-name: slin-left-nav-btn; }
-.slin .nav-bar, .slin .scroll { background-color:transparent; }
-.slout .nav-btn { -webkit-animation-name: fadeout; }
-.slout .left-nav-btn.arrow .label { -webkit-animation-name: slout-left-nav-btn; }
-.slout .textbox { -webkit-animation-name: slout-textbox; }
-.slout .scroll, .slout .scrollMask { -webkit-animation-name: slout-scroll; }
+/* webkit */
 @-webkit-keyframes slin-scroll {
 	from { -webkit-transform: translateX(100%); }
-	to { -webkit-transform: translateX(0); }
+	to   { -webkit-transform: translateX(0);    }
 }
 @-webkit-keyframes slin-textbox {
 	from { -webkit-transform: translateX(60%); opacity: 0; }
-	to { -webkit-transform: translateX(0); opacity: 1; }
+	to   { -webkit-transform: translateX(0);   opacity: 1; }
 }
 @-webkit-keyframes slin-left-nav-btn {
 	from { -webkit-transform: translateX(100%); }
-	to { -webkit-transform: translateX(0); }
+	to   { -webkit-transform: translateX(0);    }
 }
 @-webkit-keyframes slout-left-nav-btn {
-	from { -webkit-transform: translateX(0); }
-	to { -webkit-transform: translateX(-100%); }
+	from { -webkit-transform: translateX(0);     }
+	to   { -webkit-transform: translateX(-100%); }
 }
 @-webkit-keyframes slout-textbox {
-	from { -webkit-transform: translateX(0); opacity: 1; }
-	to { -webkit-transform: translateX(-50%); opacity: 0; }
+	from { -webkit-transform: translateX(0);    opacity: 1; }
+	to   { -webkit-transform: translateX(-50%); opacity: 0; }
 }
 @-webkit-keyframes slout-scroll {
-	from { -webkit-transform: translateX(0);}
-	to { -webkit-transform: translateX(-25%); }
+	from { -webkit-transform: translateX(0);    }
+	to   { -webkit-transform: translateX(-25%); }
 }
 @-webkit-keyframes fadein {
 	from { opacity: 0; }
-	to { opacity: 1; }
+	to   { opacity: 1; }
 }
 @-webkit-keyframes fadeout {
 	from { opacity: 1; }
-	to { opacity: 0; }
+	to   { opacity: 0; }
 }
 
-.srout .scroll, .srout .scrollMask { -webkit-animation-name: srout-scroll; }
-.srout .textbox { -webkit-animation-name: srout-textbox; }
-.srout .nav-btn { -webkit-animation-name: fadeout; }
-.srout .left-nav-btn.arrow .label { -webkit-animation-name: srout-left-nav-btn; }
-.srout .nav-bar, .srout .scroll { background-color:transparent; }
-.srin .nav-btn { -webkit-animation-name: fadein; }
-.srin .left-nav-btn.arrow .label { -webkit-animation-name: srin-left-nav-btn; }
-.srin .textbox { -webkit-animation-name: srin-textbox; }
-.srin .scroll, .srin .scrollMask { -webkit-animation-name: srin-scroll; }
+/* W3C */
+@keyframes slin-scroll {
+	from { transform: translateX(100%); }
+	to   { transform: translateX(0);    }
+}
+@keyframes slin-textbox {
+	from { transform: translateX(60%); opacity: 0; }
+	to   { transform: translateX(0);   opacity: 1; }
+}
+@keyframes slin-left-nav-btn {
+	from { transform: translateX(100%); }
+	to   { transform: translateX(0);    }
+}
+@keyframes slout-left-nav-btn {
+	from { transform: translateX(0);     }
+	to   { transform: translateX(-100%); }
+}
+@keyframes slout-textbox {
+	from { transform: translateX(0);    opacity: 1; }
+	to   { transform: translateX(-50%); opacity: 0; }
+}
+@keyframes slout-scroll {
+	from { transform: translateX(0);    }
+	to   { transform: translateX(-25%); }
+}
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+@keyframes fadeout {
+	from { opacity: 1; }
+	to   { opacity: 0; }
+}
+
+.srout .scroll, .srout .scrollMask {
+    -webkit-animation-name: srout-scroll;
+            animation-name: srout-scroll;
+}
+.srout .textbox {
+    -webkit-animation-name: srout-textbox;
+            animation-name: srout-textbox;
+}
+.srout .nav-btn {
+    -webkit-animation-name: fadeout;
+            animation-name: fadeout;
+}
+.srout .left-nav-btn.arrow .label {
+    -webkit-animation-name: srout-left-nav-btn;
+            animation-name: srout-left-nav-btn;
+}
+.srout .nav-bar, .srout .scroll {
+    background-color: transparent;
+}
+.srin .nav-btn {
+    -webkit-animation-name: fadein;
+            animation-name: fadein;
+}
+.srin .left-nav-btn.arrow .label {
+    -webkit-animation-name: srin-left-nav-btn;
+            animation-name: srin-left-nav-btn;
+}
+.srin .textbox {
+    -webkit-animation-name: srin-textbox;
+            animation-name: srin-textbox;
+}
+.srin .scroll, .srin .scrollMask {
+    -webkit-animation-name: srin-scroll;
+            animation-name: srin-scroll;
+}
+
+/* webkit */
 @-webkit-keyframes srout-scroll {
-	from { -webkit-transform: translateX(0); }
-	to { -webkit-transform: translateX(100%); }
+	from { -webkit-transform: translateX(0);    }
+	to   { -webkit-transform: translateX(100%); }
 }
 @-webkit-keyframes srout-textbox {
-	from { -webkit-transform: translateX(0); opacity: 1; }
-	to { -webkit-transform: translateX(60%); opacity: 0; }
+	from { -webkit-transform: translateX(0);   opacity: 1; }
+	to   { -webkit-transform: translateX(60%); opacity: 0; }
 }
 @-webkit-keyframes srout-left-nav-btn {
-	from { -webkit-transform: translateX(0); opacity: 1; }
-	to { -webkit-transform: translateX(100%); opacity: 0; }
+	from { -webkit-transform: translateX(0);    opacity: 1; }
+	to   { -webkit-transform: translateX(100%); opacity: 0; }
 }
 @-webkit-keyframes srin-left-nav-btn {
 	from { -webkit-transform: translateX(-100%); opacity: 0; }
-	to { -webkit-transform: translateX(0); opacity: 1; }
+	to   { -webkit-transform: translateX(0);     opacity: 1; }
 }
 @-webkit-keyframes srin-textbox {
 	from { -webkit-transform: translateX(-50%); opacity: 0; }
-	to { -webkit-transform: translateX(0); opacity: 1; }
+	to   { -webkit-transform: translateX(0);    opacity: 1; }
 }
 @-webkit-keyframes srin-scroll {
-	from { -webkit-transform: translateX(-25%);}
-	to { -webkit-transform: translateX(0); }
+	from { -webkit-transform: translateX(-25%); }
+	to   { -webkit-transform: translateX(0);    }
 }
 
-.popin { -webkit-animation-name: popin; }
+/* W3C */
+@keyframes srout-scroll {
+	from { transform: translateX(0);    }
+	to   { transform: translateX(100%); }
+}
+@keyframes srout-textbox {
+	from { transform: translateX(0);   opacity: 1; }
+	to   { transform: translateX(60%); opacity: 0; }
+}
+@keyframes srout-left-nav-btn {
+	from { transform: translateX(0);    opacity: 1; }
+	to   { transform: translateX(100%); opacity: 0; }
+}
+@keyframes srin-left-nav-btn {
+	from { transform: translateX(-100%); opacity: 0; }
+	to   { transform: translateX(0);     opacity: 1; }
+}
+@keyframes srin-textbox {
+	from { transform: translateX(-50%); opacity: 0; }
+	to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes srin-scroll {
+	from { transform: translateX(-25%); }
+	to   { transform: translateX(0);    }
+}
+
+.popin {
+    -webkit-animation-name: popin;
+            animation-name: popin;
+}
 @-webkit-keyframes popin {
 	from { -webkit-transform: translateY(100%); /* opacity: 1; */ }
-	to { -webkit-transform: translateY(0); /* opacity: 0; */ }
+	to   { -webkit-transform: translateY(0);    /* opacity: 0; */ }
+}
+@keyframes popin {
+	from { transform: translateY(100%); /* opacity: 1; */ }
+	to   { transform: translateY(0);    /* opacity: 0; */ }
 }
 
-.popout { -webkit-animation-name: popout; }
+.popout {
+    -webkit-animation-name: popout;
+            animation-name: popout;
+}
 @-webkit-keyframes popout {
-	from { -webkit-transform: translateY(0); /* opacity: 1; */ }
-	to { -webkit-transform: translateY(100%); /* opacity: 0; */ }
+	from { -webkit-transform: translateY(0);    /* opacity: 1; */ }
+	to   { -webkit-transform: translateY(100%); /* opacity: 0; */ }
+}
+@keyframes popout {
+	from { transform: translateY(0);    /* opacity: 1; */ }
+	to   { transform: translateY(100%); /* opacity: 0; */ }
 }
 
-.noanim { -webkit-animation-name: noanim; }
+.noanim {
+    -webkit-animation-name: noanim;
+            animation-name: noanim;
+}
 @-webkit-keyframes noanim {
 	from { opacity: 1; }
-	to { opacity: 1; }
+	to   { opacity: 1; }
+}
+@keyframes noanim {
+	from { opacity: 1; }
+	to   { opacity: 1; }
 }
 
 
 .scroll {
 	position: absolute;
-	top:0;
+	top: 0;
 	height: 100%;
 	width: 100%;
 	background-color: rgb(255, 255, 255);
@@ -259,10 +424,11 @@ body {
 .scrollMask {
 	width: 100%;
 	position: absolute;
-	top:44px;
-	bottom:0;
+	top: 44px;
+	bottom: 0;
 	background-color: rgb(255, 255, 255);
-	-webkit-box-shadow: -10px 0px 10px -5px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.1);
+	        box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.1);
 }
 
 .content {
@@ -275,13 +441,15 @@ input, textarea {
 	position: relative;
 	width: 90.6%;
     -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     font-weight: 300;
     border-radius: 0;
-    box-shadow: 0;
+    box-shadow: none;
     padding: 6px 4.7% 6px 0;
     margin-left: 4.7%;
     background-color: transparent;
-    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color: transparent;
 	background-image: linear-gradient(0deg, rgb(200, 199, 204), rgb(200, 199, 204) 50%, transparent 50%);
 	background-size: 100% 1px;
 	background-repeat: no-repeat;
@@ -298,14 +466,14 @@ li {
 	background-repeat: no-repeat;
 	background-position: bottom;
 }
-li .big {
+li .big {
 	font-weight: 500;
 }
 li .light {
-	color:rgb(111, 111, 116);
-	padding:10px 0 5px 0;
+	color: rgb(111, 111, 116);
+	padding: 10px 0 5px 0;
 }
-.arrowed .innerLi  {
+.arrowed .innerLi {
 	background-image: url(../img/listArrow.svg);
 	background-size: 15px 15px;
 	background-repeat: no-repeat;
@@ -317,13 +485,13 @@ h2 {
 	font-size: 2em;
 	line-height: 1.5em;
 	font-weight: 400;
-	text-align:center;
-    padding:6px;
+	text-align: center;
+    padding: 6px;
 }
 p {
 	line-height: 1.5em;
-	text-align:center;
-    padding:6px;
+	text-align: center;
+    padding: 6px;
 }
 button {
 	padding: 12px 18px;
@@ -331,16 +499,22 @@ button {
 	box-shadow: 0 1px 1px -1px rgba(200, 199, 204, .5);
 	font-weight: 300;
 	font-size: 18px;
-    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 button:active {
 	opacity: 0.3;
 }
 
 
-.center { text-align:center; }
-strong { font-weight: 500; }
-em { font-style: italic; }
+.center {
+    text-align: center;
+}
+strong {
+    font-weight: 500;
+}
+em {
+    font-style: italic;
+}
 
 .native .nav-btn, .native .nav-bar {
 	padding-top: 20px;
@@ -349,18 +523,25 @@ em { font-style: italic; }
 	margin-top: 64px;
 }
 .native .nav-icons {
-	top:20px;
+	top: 20px;
 }
 .native .scrollMask {
-	top:64px;
+	top: 64px;
 }
-.ios6 li, .ios6 input, .ios6 textarea, .ios6 .nav-bar {
+.ios7 li, .ios7 input, .ios7 textarea, .ios7 .nav-bar {
 	background-image: none;
-	border-bottom:1px solid rgb(200, 199, 204);
+	border-bottom: 1px solid rgb(200, 199, 204);
 }
+
 @media (-webkit-max-device-pixel-ratio: 1) {
 	li, input, textarea, .nav-bar {
 		background-image: none;
-		border-bottom:1px solid rgb(200, 199, 204);
+		border-bottom: 1px solid rgb(200, 199, 204);
+	}
+}
+@media (max-device-pixel-ratio: 1) {
+	li, input, textarea, .nav-bar {
+		background-image: none;
+		border-bottom: 1px solid rgb(200, 199, 204);
 	}
 }
