@@ -48,8 +48,8 @@ var ScrollTop = function () {
 var TextboxResize = function (el) {
     el.removeEventListener('click', ScrollTop, false);
     el.addEventListener('click', ScrollTop, false);
-    var leftbtn = el.parentNode.querySelectorAll('.left-nav-btn')[0];
-    var rightbtn = el.parentNode.querySelectorAll('.right-nav-btn')[0];
+    var leftbtn = el.parentNode.querySelectorAll('button.left')[0];
+    var rightbtn = el.parentNode.querySelectorAll('button.right')[0];
     if (typeof leftbtn === 'undefined') {
         leftbtn = {
             offsetWidth: 0,
@@ -94,30 +94,30 @@ var App = {
         
         var i;
         
-        var textboxes = document.querySelectorAll('.textbox');
+        var textboxes = document.getElementsByTagName('h1');
         for ( i = textboxes.length; i--;) {
             TextboxResize(textboxes[i]);
         }
         
-        document.querySelector('#view-home .left-nav-btn').addEventListener('click', function(){
+        document.querySelector('#view-home button.left').addEventListener('click', function(){
             Slide('popin', 'view-about', 'view-home');
         });
-        document.querySelector('#view-forms .left-nav-btn').addEventListener('click', function(){
+        document.querySelector('#view-forms button.left').addEventListener('click', function(){
             Slide('sr', 'view-home', 'view-forms');
         });
-        document.querySelector('#view-forms .right-nav-btn').addEventListener('click', function(){
+        document.querySelector('#view-forms button.right').addEventListener('click', function(){
             Slide('sl', 'view-done', 'view-forms');
         });
-        document.querySelector('#view-done .center').addEventListener('click', function(){
+        document.querySelector('#view-done button.right').addEventListener('click', function(){
             Slide('popout', 'view-home', 'view-done');
         });
-        document.querySelector('#view-about .right-nav-btn').addEventListener('click', function(){
+        document.querySelector('#view-about button.right').addEventListener('click', function(){
             Slide('popout', 'view-home', 'view-about');
         });
         
         var listitems = document.querySelectorAll('#view-home li'),
             listitemAction = function(){
-                Slide('sl', 'view-forms', 'view-home', true, false, false, false);
+                Slide('sl', 'view-forms', 'view-home');
             };
         for ( i = listitems.length; i--;) {
             listitems[i].addEventListener('click', listitemAction);

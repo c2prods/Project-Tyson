@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, textarea {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, textarea, header, button {
     margin: 0;
     padding: 0;
     border: 0;
@@ -9,6 +9,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font-family: inherit;
     vertical-align: baseline;
 } 
+button {
+	background-color: transparent; /* Fix for Chrome */
+}
 :focus {
     outline: 0;
 } 
@@ -76,7 +79,7 @@ body {
     	        animation: rotate 1.5s infinite steps(12);
 }
 
-.nav-bar {
+header {
 	position: absolute;
 	top:0;
 	height: 44px;
@@ -94,7 +97,7 @@ body {
 	        user-select: none;
 	-webkit-touch-callout: none;
 }
-.nav-btn {
+header button {
 	position: absolute;
 	top: 0;
 	display: inline-block;
@@ -108,45 +111,45 @@ body {
 	text-overflow: ellipsis !important; /* why so !important ? */
 	max-width: 140px;
 }
-.nav-btn:active {
+header button:active {
 	opacity: 0.3;
 }
-.nav-btn.bold {
+header button.bold {
 	font-weight: 500;
 }
-.nav-btn.green {
+header button.green {
 	color:rgb(41, 197, 25);
 }
-.nav-btn.disabled {
+header button.disabled {
 	color:rgb(200, 199, 204);
 }
-.nav-btn.arrow {
+header button.arrow {
 	background-size: 24px 44px;
 	background-repeat: no-repeat;
 }
 
-.left-nav-btn {
+header button.left {
 	left:0;
 	padding-left: 9px;
 }
-.left-nav-btn.arrow {
+header button.left.arrow {
 	padding-left: 23px;
 	background-image: url(../img/backBtn.svg);
 	background-position: left bottom;
 }
-.right-nav-btn {
+header button.right {
 	right:0;
 	text-align: right;
 	padding-right: 9px;
 }
-.right-nav-btn.arrow {
+header button.right.arrow {
 	padding-right: 23px;
 	background-image: url(../img/nextBtn.svg);
 	background-position: right bottom;
 }
 
 
-.textbox {
+h1 {
 	padding: 0;
 	text-align: center;
 	font-size: 17px;
@@ -161,52 +164,56 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-.view .scroll, .view .scrollMask, .view .nav-btn, .view .textbox, .view,  .view .nav-btn .label {
+.view .scroll, .view .scrollMask, .view header button, .view h1, .view,  header button .label {
 	-webkit-animation-fill-mode: forwards;
 	        animation-fill-mode: forwards;
 	-webkit-animation-duration: 400ms;
 	        animation-duration: 400ms;
 }
-.view .scroll, .view .scrollMask, .view .textbox, .view,  .view .nav-btn .label {
+.view .scroll, .view .scrollMask, .view h1, .view,  .view header button .label {
 	-webkit-animation-timing-function: cubic-bezier(.1, .7, .1, 1);
 	        animation-timing-function: cubic-bezier(.1, .7, .1, 1);
 }
-.slin .nav-btn, .srin .nav-btn {
+.slin header button, .srin header button {
 	-webkit-animation-timing-function: cubic-bezier(.6, .1, .3, 1);
 	        animation-timing-function: cubic-bezier(.6, .1, .3, 1);
 }
-.slout .nav-btn, .srout .nav-btn {
+.slout header button, .srout header button {
 	-webkit-animation-timing-function: cubic-bezier(.1, 1, .1, 1);
 	        animation-timing-function: cubic-bezier(.1, 1, .1, 1);
 }
-.slin .scroll, .slin .scrollMask {
+.slin .scroll {
     -webkit-animation-name: slin-scroll;
             animation-name: slin-scroll;
 }
-.slin .textbox {
+.slin .scrollMask {
+    -webkit-animation-name: slin-scrollMask;
+            animation-name: slin-scrollMask;
+}
+.slin h1 {
     -webkit-animation-name: slin-textbox;
             animation-name: slin-textbox;
 }
-.slin .nav-btn {
+.slin header button {
     -webkit-animation-name: fadein;
             animation-name: fadein;
 }
-.slin .left-nav-btn.arrow .label {
+.slin header button.left.arrow .label {
     -webkit-animation-name: slin-left-nav-btn;
             animation-name: slin-left-nav-btn;
 }
-.slin .nav-bar, .slin .scroll {
+.slin header, .slin .scroll {
     background-color: transparent;
 }
-.slout .nav-btn {
+.slout header button {
     -webkit-animation-name: fadeout;
             animation-name: fadeout;
 }
-.slout .left-nav-btn.arrow .label {
+.slout header button.left.arrow .label {
     -webkit-animation-name: slout-left-nav-btn;
             animation-name: slout-left-nav-btn;
 }
-.slout .textbox {
+.slout h1 {
     -webkit-animation-name: slout-textbox;
             animation-name: slout-textbox;
 }
@@ -219,6 +226,10 @@ body {
 @-webkit-keyframes slin-scroll {
 	from { -webkit-transform: translateX(100%); }
 	to   { -webkit-transform: translateX(0);    }
+}
+@-webkit-keyframes slin-scrollMask {
+	from { -webkit-transform: translateX(100%); -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);  }
+	to   { -webkit-transform: translateX(0);    -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.02); }
 }
 @-webkit-keyframes slin-textbox {
 	from { -webkit-transform: translateX(60%); opacity: 0; }
@@ -234,11 +245,11 @@ body {
 }
 @-webkit-keyframes slout-textbox {
 	from { -webkit-transform: translateX(0);    opacity: 1; }
-	to   { -webkit-transform: translateX(-50%); opacity: 0; }
+	to   { -webkit-transform: translateX(-40%); opacity: 0; }
 }
 @-webkit-keyframes slout-scroll {
-	from { -webkit-transform: translateX(0);    }
-	to   { -webkit-transform: translateX(-25%); }
+	from { -webkit-transform: translateX(0);    opacity: 1;   }
+	to   { -webkit-transform: translateX(-25%); opacity: 0.9; }
 }
 @-webkit-keyframes fadein {
 	from { opacity: 0; }
@@ -254,6 +265,10 @@ body {
 	from { transform: translateX(100%); }
 	to   { transform: translateX(0);    }
 }
+@keyframes slin-scrollMask {
+	from { transform: translateX(100%); box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);  }
+	to   { transform: translateX(0);    box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.02); }
+}
 @keyframes slin-textbox {
 	from { transform: translateX(60%); opacity: 0; }
 	to   { transform: translateX(0);   opacity: 1; }
@@ -268,11 +283,11 @@ body {
 }
 @keyframes slout-textbox {
 	from { transform: translateX(0);    opacity: 1; }
-	to   { transform: translateX(-50%); opacity: 0; }
+	to   { transform: translateX(-40%); opacity: 0; }
 }
 @keyframes slout-scroll {
-	from { transform: translateX(0);    }
-	to   { transform: translateX(-25%); }
+	from { transform: translateX(0);    opacity: 1;   }
+	to   { transform: translateX(-25%); opacity: 0.9; }
 }
 @keyframes fadein {
 	from { opacity: 0; }
@@ -283,34 +298,38 @@ body {
 	to   { opacity: 0; }
 }
 
-.srout .scroll, .srout .scrollMask {
+.srout .scroll {
     -webkit-animation-name: srout-scroll;
             animation-name: srout-scroll;
 }
-.srout .textbox {
+.srout .scrollMask {
+    -webkit-animation-name: srout-scrollMask;
+            animation-name: srout-scrollMask;
+}
+.srout h1 {
     -webkit-animation-name: srout-textbox;
             animation-name: srout-textbox;
 }
-.srout .nav-btn {
+.srout header button {
     -webkit-animation-name: fadeout;
             animation-name: fadeout;
 }
-.srout .left-nav-btn.arrow .label {
+.srout header button.left.arrow .label {
     -webkit-animation-name: srout-left-nav-btn;
             animation-name: srout-left-nav-btn;
 }
-.srout .nav-bar, .srout .scroll {
+.srout header, .srout .scroll {
     background-color: transparent;
 }
-.srin .nav-btn {
+.srin header button {
     -webkit-animation-name: fadein;
             animation-name: fadein;
 }
-.srin .left-nav-btn.arrow .label {
+.srin header button.left.arrow .label {
     -webkit-animation-name: srin-left-nav-btn;
             animation-name: srin-left-nav-btn;
 }
-.srin .textbox {
+.srin h1 {
     -webkit-animation-name: srin-textbox;
             animation-name: srin-textbox;
 }
@@ -323,6 +342,10 @@ body {
 @-webkit-keyframes srout-scroll {
 	from { -webkit-transform: translateX(0);    }
 	to   { -webkit-transform: translateX(100%); }
+}
+@-webkit-keyframes srout-scrollMask {
+	from { -webkit-transform: translateX(0);    -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.02); }
+	to   { -webkit-transform: translateX(100%); -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);  }
 }
 @-webkit-keyframes srout-textbox {
 	from { -webkit-transform: translateX(0);   opacity: 1; }
@@ -341,14 +364,18 @@ body {
 	to   { -webkit-transform: translateX(0);    opacity: 1; }
 }
 @-webkit-keyframes srin-scroll {
-	from { -webkit-transform: translateX(-25%); }
-	to   { -webkit-transform: translateX(0);    }
+	from { -webkit-transform: translateX(-25%); opacity: 0.9; }
+	to   { -webkit-transform: translateX(0);    opacity: 1;   }
 }
 
 /* W3C */
 @keyframes srout-scroll {
 	from { transform: translateX(0);    }
 	to   { transform: translateX(100%); }
+}
+@keyframes srout-scrollMask {
+	from { transform: translateX(0);    -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.02); }
+	to   { transform: translateX(100%); -webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.2);  }
 }
 @keyframes srout-textbox {
 	from { transform: translateX(0);   opacity: 1; }
@@ -367,8 +394,8 @@ body {
 	to   { transform: translateX(0);    opacity: 1; }
 }
 @keyframes srin-scroll {
-	from { transform: translateX(-25%); }
-	to   { transform: translateX(0);    }
+	from { transform: translateX(-25%); opacity: 0.9; }
+	to   { transform: translateX(0);    opacity: 1;   }
 }
 
 .popin {
@@ -429,6 +456,9 @@ body {
 	background-color: rgb(255, 255, 255);
 	-webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.1);
 	        box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.1);
+}
+.slout .scrollMask, .srin .scrollMask {
+	background-color: #000;
 }
 
 .content {
@@ -493,7 +523,7 @@ p {
 	text-align: center;
     padding: 6px;
 }
-button {
+.content button {
 	padding: 12px 18px;
 	border-radius: 6px;
 	box-shadow: 0 1px 1px -1px rgba(200, 199, 204, .5);
@@ -501,7 +531,7 @@ button {
 	font-size: 18px;
     -webkit-tap-highlight-color: transparent;
 }
-button:active {
+.content button:active {
 	opacity: 0.3;
 }
 
@@ -516,7 +546,7 @@ em {
     font-style: italic;
 }
 
-.native .nav-btn, .native .nav-bar {
+.native header button, .native header {
 	padding-top: 20px;
 }
 .native .content {
@@ -528,19 +558,19 @@ em {
 .native .scrollMask {
 	top: 64px;
 }
-.ios7 li, .ios7 input, .ios7 textarea, .ios7 .nav-bar {
+.ios7 li, .ios7 input, .ios7 textarea, .ios7 header {
 	background-image: none;
 	border-bottom: 1px solid rgb(200, 199, 204);
 }
 
 @media (-webkit-max-device-pixel-ratio: 1) {
-	li, input, textarea, .nav-bar {
+	li, input, textarea, header {
 		background-image: none;
 		border-bottom: 1px solid rgb(200, 199, 204);
 	}
 }
 @media (max-device-pixel-ratio: 1) {
-	li, input, textarea, .nav-bar {
+	li, input, textarea, header {
 		background-image: none;
 		border-bottom: 1px solid rgb(200, 199, 204);
 	}
