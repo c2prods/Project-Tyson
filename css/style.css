@@ -410,16 +410,20 @@ body {
 	to   { opacity: 1; }
 }
 
-
-.scroll {
+.scrollWrap {
 	position: absolute;
 	top: 0;
+    overflow: hidden;
+    width: 100%;
 	height: 100%;
+}
+.scroll {
 	width: 100%;
+	padding-right: 20px;
+	height: 100%;
 	background-color: rgb(255, 255, 255);
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
-	z-index: 1;
 }
 .scrollMask {
 	width: 100%;
