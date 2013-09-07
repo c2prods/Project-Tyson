@@ -172,6 +172,7 @@ body {
 	        animation-timing-function: cubic-bezier(.1, .7, .1, 1);
 }
 .slin .nav-btn, .srin .nav-btn {
+    z-index: 2;
 	-webkit-animation-timing-function: cubic-bezier(.6, .1, .3, 1);
 	        animation-timing-function: cubic-bezier(.6, .1, .3, 1);
 }
@@ -179,9 +180,14 @@ body {
 	-webkit-animation-timing-function: cubic-bezier(.1, 1, .1, 1);
 	        animation-timing-function: cubic-bezier(.1, 1, .1, 1);
 }
-.slin .scroll, .slin .scrollMask {
+.slin .scroll {
     -webkit-animation-name: slin-scroll;
             animation-name: slin-scroll;
+}
+.slin .scrollMask {
+    z-index: 9;
+    -webkit-animation-name: slin-scrollMask;
+            animation-name: slin-scrollMask;
 }
 .slin .textbox {
     -webkit-animation-name: slin-textbox;
@@ -210,15 +216,24 @@ body {
     -webkit-animation-name: slout-textbox;
             animation-name: slout-textbox;
 }
-.slout .scroll, .slout .scrollMask {
+.slout .scroll {
     -webkit-animation-name: slout-scroll;
             animation-name: slout-scroll;
+}
+.slout .scrollMask {
+    z-index: 9;
+    -webkit-animation-name: slout-scrollMask;
+            animation-name: slout-scrollMask;
 }
 
 /* webkit */
 @-webkit-keyframes slin-scroll {
 	from { -webkit-transform: translateX(100%); }
 	to   { -webkit-transform: translateX(0);    }
+}
+@-webkit-keyframes slin-scrollMask {
+	from { -webkit-transform: translateX(100%); opacity: 1; }
+	to   { -webkit-transform: translateX(0);    opacity: 0; }
 }
 @-webkit-keyframes slin-textbox {
 	from { -webkit-transform: translateX(60%); opacity: 0; }
@@ -240,6 +255,10 @@ body {
 	from { -webkit-transform: translateX(0);    }
 	to   { -webkit-transform: translateX(-25%); }
 }
+@-webkit-keyframes slout-scrollMask {
+	from { -webkit-transform: translateX(0);    opacity: 0; }
+	to   { -webkit-transform: translateX(-25%); opacity: 1; }
+}
 @-webkit-keyframes fadein {
 	from { opacity: 0; }
 	to   { opacity: 1; }
@@ -253,6 +272,10 @@ body {
 @keyframes slin-scroll {
 	from { transform: translateX(100%); }
 	to   { transform: translateX(0);    }
+}
+@keyframes slin-scrollMask {
+	from { transform: translateX(100%); opacity: 1; }
+	to   { transform: translateX(0);    opacity: 0; }
 }
 @keyframes slin-textbox {
 	from { transform: translateX(60%); opacity: 0; }
@@ -274,6 +297,10 @@ body {
 	from { transform: translateX(0);    }
 	to   { transform: translateX(-25%); }
 }
+@keyframes slout-scrollMask {
+	from { transform: translateX(0);    opacity: 0; }
+	to   { transform: translateX(-25%); opacity: 1; }
+}
 @keyframes fadein {
 	from { opacity: 0; }
 	to   { opacity: 1; }
@@ -283,9 +310,14 @@ body {
 	to   { opacity: 0; }
 }
 
-.srout .scroll, .srout .scrollMask {
+.srout .scroll {
     -webkit-animation-name: srout-scroll;
             animation-name: srout-scroll;
+}
+.srout .scrollMask {
+    z-index: 9;
+    -webkit-animation-name: srout-scrollMask;
+            animation-name: srout-scrollMask;
 }
 .srout .textbox {
     -webkit-animation-name: srout-textbox;
@@ -314,15 +346,24 @@ body {
     -webkit-animation-name: srin-textbox;
             animation-name: srin-textbox;
 }
-.srin .scroll, .srin .scrollMask {
+.srin .scroll {
     -webkit-animation-name: srin-scroll;
             animation-name: srin-scroll;
+}
+.srin .scrollMask {
+    z-index: 9;
+    -webkit-animation-name: srin-scrollMask;
+            animation-name: srin-scrollMask;
 }
 
 /* webkit */
 @-webkit-keyframes srout-scroll {
 	from { -webkit-transform: translateX(0);    }
 	to   { -webkit-transform: translateX(100%); }
+}
+@-webkit-keyframes srout-scrollMask {
+	from { -webkit-transform: translateX(0);    opacity: 1; }
+	to   { -webkit-transform: translateX(100%); opacity: 0; }
 }
 @-webkit-keyframes srout-textbox {
 	from { -webkit-transform: translateX(0);   opacity: 1; }
@@ -344,11 +385,19 @@ body {
 	from { -webkit-transform: translateX(-25%); }
 	to   { -webkit-transform: translateX(0);    }
 }
+@-webkit-keyframes srin-scrollMask {
+	from { -webkit-transform: translateX(-25%); opacity: 1; }
+	to   { -webkit-transform: translateX(0);    opacity: 0; }
+}
 
 /* W3C */
 @keyframes srout-scroll {
 	from { transform: translateX(0);    }
 	to   { transform: translateX(100%); }
+}
+@keyframes srout-scrollMask {
+	from { transform: translateX(0);    opacity: 1; }
+	to   { transform: translateX(100%); opacity: 0; }
 }
 @keyframes srout-textbox {
 	from { transform: translateX(0);   opacity: 1; }
@@ -369,6 +418,10 @@ body {
 @keyframes srin-scroll {
 	from { transform: translateX(-25%); }
 	to   { transform: translateX(0);    }
+}
+@keyframes srin-scrollMask {
+	from { transform: translateX(-25%); opacity: 1; }
+	to   { transform: translateX(0);    opacity: 0; }
 }
 
 .popin {
@@ -416,6 +469,7 @@ body {
     overflow: hidden;
     width: 100%;
 	height: 100%;
+    z-index: 2;
 }
 .scroll {
 	width: 100%;
@@ -431,6 +485,8 @@ body {
 	top: 44px;
 	bottom: 0;
 	background-color: rgb(255, 255, 255);
+	z-index: 1;
+	opacity: 1;
 	-webkit-box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.1);
 	        box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.1);
 }

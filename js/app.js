@@ -17,20 +17,20 @@ var Slide = function (slideType, vin, vout, callback) {
     var vIn = $(vin),
         vOut = $(vout),
         onAnimationEnd = function () {
-            vOut.classList.remove(slideOpts[slideType][1]);
             vOut.classList.add('hidden');
             vIn.classList.remove(slideOpts[slideType][0]);
+            vOut.classList.remove(slideOpts[slideType][1]);
             vOut.removeEventListener('webkitAnimationEnd', onAnimationEnd, false);
             vOut.removeEventListener('animationend',       onAnimationEnd);
         };
-    vIn.classList.remove('hidden');
-    vIn.classList.add(slideOpts[slideType][0]);
-    vOut.classList.add(slideOpts[slideType][1]);
     vOut.addEventListener('webkitAnimationEnd', onAnimationEnd, false);
     vOut.addEventListener('animationend',       onAnimationEnd);
     if (callback && typeof(callback) === 'function') {
         callback();
     }
+    vIn.classList.remove('hidden');
+    vIn.classList.add(slideOpts[slideType][0]);
+    vOut.classList.add(slideOpts[slideType][1]);
 };
 
 var ScrollTop = function () {
