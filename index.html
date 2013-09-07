@@ -7,13 +7,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 		<title>My App</title>
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-		<script src="js/fastclick.js" type="text/javascript"></script>
-		<script src="js/app.js" type="text/javascript"></script>
+		<script defer src="js/fastclick.js"></script>
+		<script defer src="js/app.js"></script>
 	</head>
-	<body class="ios6"> <!-- native | ios6 -->
+	<body class="ios7"> <!-- native | ios7 -->
 		<div class="view" id="view-home">
 			<div class="nav-bar">
-				<div class="left-nav-btn nav-btn" onclick="Slide('popin', 'view-about', 'view-home')">
+				<div class="left-nav-btn nav-btn">
 					<div class="label">About</div>
 				</div>
 				<div class="textbox">All Contacts</div>
@@ -22,43 +22,43 @@
 			<div class="scroll">
 				<div class="content">
 					<ul class="arrowed">
-						<li onclick="Slide('sl', 'view-forms', 'view-home', true, false, false, false)">
+						<li>
 							<div class="innerLi">
 								<div class="big">John Alexander </div>
 								<div class="light">CEO @A Super Corp</div>
 							</div>
 						</li>
-						<li onclick="Slide('sl', 'view-forms', 'view-home', true, false, false, false)">
+						<li>
 							<div class="innerLi">
 								<div class="big">Miranda Bowman</div>
 								<div class="light">Advisor @Another Super Corp</div>
 							</div>
 						</li>
-						<li onclick="Slide('sl', 'view-forms', 'view-home', true, false, false, false)">
+						<li>
 							<div class="innerLi">
 								<div class="big">Jane Doe</div>
 								<div class="light">Senior Brand Manager @Self-employed</div>
 							</div>
 						</li>
-						<li onclick="Slide('sl', 'view-forms', 'view-home', true, false, false, false)">
+						<li>
 							<div class="innerLi">
 								<div class="big">Thomas David</div>
 								<div class="light">VP Strategy @Some Startup</div>
 							</div>
 						</li>
-						<li onclick="Slide('sl', 'view-forms', 'view-home', true, false, false, false)">
+						<li>
 							<div class="innerLi">
 								<div class="big">Jack Person</div>
 								<div class="light">Chief decorator @Hollywood studios</div>
 							</div>
 						</li>
-						<li onclick="Slide('sl', 'view-forms', 'view-home', true, false, false, false)">
+						<li>
 							<div class="innerLi">
 								<div class="big">Maria Verner</div>
 								<div class="light">VP Innovation @A big company</div>
 							</div>
 						</li>
-						<li onclick="Slide('sl', 'view-forms', 'view-home', true, false, false, false)">
+						<li>
 							<div class="innerLi">
 								<div class="big">Jesus Christ</div>
 								<div class="light">VP General Administration @God</div>
@@ -70,11 +70,11 @@
 		</div>
 		<div class="view hidden" id="view-forms">
 			<div class="nav-bar">
-				<div class="left-nav-btn nav-btn arrow" onclick="Slide('sr', 'view-home', 'view-forms')">
+				<div class="left-nav-btn nav-btn arrow">
 					<div class="label">All Contacts</div>
 				</div>
 				<div class="textbox">Message</div>
-				<div class="right-nav-btn nav-btn bold green" onclick="Slide('sl', 'view-done', 'view-forms')">
+				<div class="right-nav-btn nav-btn bold green">
 					<div class="label">Send</div>
 				</div>
 			</div>
@@ -95,14 +95,14 @@
 			<div class="scroll">
 				<div class="content">
                     <h2>Message sent!</h2>
-                    <p class="center" onclick="Slide('popout', 'view-home', 'view-done')"><button>Done</button></p>
+                    <p class="center"><button>Done</button></p>
 				</div>
 			</div>
 		</div>
 		<div class="view hidden" id="view-about">
 			<div class="nav-bar">
 				<div class="textbox">About this App</div>
-				<div class="right-nav-btn nav-btn bold" onclick="Slide('popout', 'view-home', 'view-about')">
+				<div class="right-nav-btn nav-btn bold">
 					<div class="label">Done</div>
 				</div>
 			</div>
@@ -114,10 +114,5 @@
 				</div>
 			</div>
 		</div>
-        <script type="text/javascript">
-            window.addEventListener('load', function () {
-            	app.Init();
-            }, false);
-        </script>
 	</body>
 </html>
