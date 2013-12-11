@@ -56,6 +56,48 @@ body {
 	background-color: rgb(255, 255, 255);
 }
 
+
+/* Tabbar */
+nav {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 49px;
+	text-align: center;
+	background-color: rgba(248, 248, 248, 0.9);
+	background-image: linear-gradient(180deg, rgb(200, 199, 204), rgb(200, 199, 204) 50%, transparent 50%);
+	background-size: 100% 1px;
+	background-repeat: no-repeat;
+	background-position: top center;
+	z-index: 100;
+}
+
+nav button {
+	display: inline-block;
+	width: 64px;
+	text-align: center;
+	font-size: 10px;
+	line-height: 1em;
+	padding: 6px 0 0 0;
+	margin: 0;
+	color: rgb(111, 111, 116);
+}
+
+nav button.active {
+	color:rgb(21, 125, 251);
+}
+nav button .btn-icon {
+	display: inline-block;
+	background-color: rgb(111, 111, 116);
+	height: 24px;
+	width: 24px;
+	margin-bottom: 2px;
+}
+nav button.active .btn-icon {
+	background-color:rgb(21, 125, 251);
+}
+
+/* Views */
 section {
 	position: fixed;
 	width: 100%;
@@ -478,6 +520,7 @@ section .scroll, section .scrollMask, section h1, section,  section header butto
 	line-height: 1em;
 	margin-top: 44px;
 	font-weight: 400;
+	padding-bottom: 54px;
 }
 input, textarea {
 	display: block;
@@ -570,10 +613,6 @@ em {
 }
 .native .scrollMask {
 	top: 64px;
-}
-.ios7 li, .ios7 input, .ios7 textarea, .ios7 header {
-	background-image: none;
-	border-bottom: 1px solid rgb(200, 199, 204);
 }
 
 @media (-webkit-max-device-pixel-ratio: 1) {

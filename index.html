@@ -11,9 +11,9 @@
 		<script defer src="js/app.js"></script>
 	</head>
 	<body class="ios7"> <!-- native | ios7 -->
-		<section id="view-home">
+		<section id="view-home" class="active">
 			<header>
-				<button class="left">
+				<button class="left" data-vin="view-about" data-sd="popin">
 					<div class="label">About</div>
 				</button>
 				<h1>All Contacts</h1>
@@ -23,43 +23,43 @@
 				<div class="scroll">
 				<div class="content">
 					<ul class="arrowed">
-						<li>
+						<li data-vin="view-forms" data-sd="sl">
 							<div class="innerLi">
 								<div class="big">John Alexander </div>
 								<div class="light">CEO @A Super Corp</div>
 							</div>
 						</li>
-						<li>
+						<li data-vin="view-forms" data-sd="sl">
 							<div class="innerLi">
 								<div class="big">Miranda Bowman</div>
 								<div class="light">Advisor @Another Super Corp</div>
 							</div>
 						</li>
-						<li>
+						<li data-vin="view-forms" data-sd="sl">
 							<div class="innerLi">
 								<div class="big">Jane Doe</div>
 								<div class="light">Senior Brand Manager @Self-employed</div>
 							</div>
 						</li>
-						<li>
+						<li data-vin="view-forms" data-sd="sl">
 							<div class="innerLi">
 								<div class="big">Thomas David</div>
 								<div class="light">VP Strategy @Some Startup</div>
 							</div>
 						</li>
-						<li>
+						<li data-vin="view-forms" data-sd="sl">
 							<div class="innerLi">
 								<div class="big">Jack Person</div>
 								<div class="light">Chief decorator @Hollywood studios</div>
 							</div>
 						</li>
-						<li>
+						<li data-vin="view-forms" data-sd="sl">
 							<div class="innerLi">
 								<div class="big">Maria Verner</div>
 								<div class="light">VP Innovation @A big company</div>
 							</div>
 						</li>
-						<li>
+						<li data-vin="view-forms" data-sd="sl">
 							<div class="innerLi">
 								<div class="big">Jesus Christ</div>
 								<div class="light">VP General Administration @God</div>
@@ -72,11 +72,11 @@
 		</section>
 		<section class="hidden" id="view-forms">
 			<header>
-				<button class="left arrow">
+				<button class="left arrow" data-vin="view-home" data-sd="sr">
 					<div class="label">All Contacts</div>
 				</button>
 				<h1>Message</h1>
-				<button class="right bold green">
+				<button class="right bold green" data-vin="view-done" data-sd="sl">
 					<div class="label">Send</div>
 				</button>
 			</header>
@@ -94,7 +94,7 @@
 		<section class="hidden" id="view-done">
 			<header>
 				<h1>That's it!</h1>
-				<button class="right bold">
+				<button class="right bold" data-vin="view-home" data-sd="popout">
 					<div class="label">Done</div>
 				</button>
 			</header>
@@ -110,7 +110,7 @@
 		<section class="hidden" id="view-about">
 			<header>
 				<h1>About</h1>
-				<button class="right bold">
+				<button class="right bold" data-vin="view-home" data-sd="popout">
 					<div class="label">Done</div>
 				</button>
 			</header>
@@ -124,5 +124,46 @@
 			</div>
 			</div>
 		</section>
+		<section class="hidden" id="view-tab2">
+			<header>
+				<h1>Tab 2</h1>
+			</header>
+			<div class="scrollMask"></div>
+			<div class="scrollWrap">
+				<div class="scroll">
+				<div class="content">
+                    <h2>Some title</h2>
+                    <p>Lorem Ipsum.</p>
+				</div>
+			</div>
+			</div>
+		</section>
+		<section class="hidden" id="view-tab3">
+			<header>
+				<h1>Tab 3</h1>
+			</header>
+			<div class="scrollMask"></div>
+			<div class="scrollWrap">
+				<div class="scroll">
+				<div class="content">
+                    <h2>Some title</h2>
+                    <p>Lorem Ipsum.</p>
+				</div>
+			</div>
+			</div>
+		</section>
+		
+		<nav>
+			<button id="btn1" class="active" data-vin="view-home">
+				<div class="btn-icon" style="-webkit-mask-image: url(img/icons/user.svg);"></div>
+				<div class="label">Home</div>
+			</button><button id="btn2" data-vin="view-tab2">
+				<div class="btn-icon" style="-webkit-mask-image: url(img/icons/list-alt.svg);"></div>
+				<div class="label">Tab 2</div>
+			</button><button id="btn3" data-vin="view-tab3">
+				<div class="btn-icon" style="-webkit-mask-image: url(img/icons/group.svg);"></div>
+				<div class="label">Tab 3</div>
+			</button>
+		</nav>
 	</body>
 </html>

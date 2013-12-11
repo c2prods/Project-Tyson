@@ -1,4 +1,5 @@
-var $ = function (id) { return document.getElementById(id); };
+var $ = function (query) { return document.querySelector(query); };
+var $$ = function (query) { return document.querySelectorAll(query); };
 
 var slideOpts = {
     sl:     ['slin',   'slout' ],    
@@ -13,11 +14,26 @@ var clearNode = function (node) {
     }
 };
 
-var Slide = function (slideType, vin, vout, callback) {
-    var vIn = $(vin),
-        vOut = $(vout),
+var SwitchTabs = function () {
+    var vIn = $('#'+this.dataset.vin),
+        vOut = $('section.active'),
+        vInCmd = this,
+        vOutCmd = $('nav button.active');
+    vOut.classList.remove('active');
+    vIn.classList.add('active');
+    vIn.classList.remove('hidden');
+    vOut.classList.add('hidden');
+    vOutCmd.classList.remove('active');
+    vInCmd.classList.add('active');
+}
+
+var Slide = function (callback) {
+    var vIn = $('#'+this.dataset.vin),
+        vOut = $('section.active'),
+        slideType = this.dataset.sd,
         onAnimationEnd = function () {
             vOut.classList.add('hidden');
+            vIn.classList.add('active');
             vIn.classList.remove(slideOpts[slideType][0]);
             vOut.classList.remove(slideOpts[slideType][1]);
             vOut.removeEventListener('webkitAnimationEnd', onAnimationEnd, false);
@@ -28,13 +44,14 @@ var Slide = function (slideType, vin, vout, callback) {
     if (callback && typeof(callback) === 'function') {
         callback();
     }
+    vOut.classList.remove('active');
     vIn.classList.remove('hidden');
     vIn.classList.add(slideOpts[slideType][0]);
     vOut.classList.add(slideOpts[slideType][1]);
 };
 
 var ScrollTop = function () {
-    var el = this.parentNode.parentNode.childNodes[5],
+    var el = this.parentNode.parentNode.childNodes[5].childNodes[1],
         offset = el.scrollTop,
         interval = setInterval(function() {
             el.scrollTop = offset;
@@ -92,36 +109,18 @@ var App = {
     init: function () {
         FastClick.attach(document.body);
         
-        var i;
+        var textboxes = $$('h1');
+        for (var i = 0; i<textboxes.length; i++) TextboxResize(textboxes[i]);
         
-        var textboxes = document.getElementsByTagName('h1');
-        for ( i = textboxes.length; i--;) {
-            TextboxResize(textboxes[i]);
-        }
+        var tabbtns = $$('nav button');
+        for (var i = 0; i<tabbtns.length; i++) tabbtns[i].addEventListener('click', SwitchTabs, false);
+
+        var navbtns = $$('header button');
+        for (var i = 0; i<navbtns.length; i++) navbtns[i].addEventListener('click', Slide, false);
+                
+        var listitems = $$('#view-home li');
+        for (var i = 0; i<listitems.length; i++) listitems[i].addEventListener('click', Slide, false);
         
-        document.querySelector('#view-home button.left').addEventListener('click', function(){
-            Slide('popin', 'view-about', 'view-home');
-        });
-        document.querySelector('#view-forms button.left').addEventListener('click', function(){
-            Slide('sr', 'view-home', 'view-forms');
-        });
-        document.querySelector('#view-forms button.right').addEventListener('click', function(){
-            Slide('sl', 'view-done', 'view-forms');
-        });
-        document.querySelector('#view-done button.right').addEventListener('click', function(){
-            Slide('popout', 'view-home', 'view-done');
-        });
-        document.querySelector('#view-about button.right').addEventListener('click', function(){
-            Slide('popout', 'view-home', 'view-about');
-        });
-        
-        var listitems = document.querySelectorAll('#view-home li'),
-            listitemAction = function(){
-                Slide('sl', 'view-forms', 'view-home');
-            };
-        for ( i = listitems.length; i--;) {
-            listitems[i].addEventListener('click', listitemAction);
-        }
     }
 };
 
