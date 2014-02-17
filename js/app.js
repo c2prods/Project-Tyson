@@ -21,8 +21,8 @@ var SwitchTabs = function () {
         vOutCmd = $('nav button.active');
     vOut.classList.remove('active');
     vIn.classList.add('active');
-    vIn.classList.remove('hidden');
     vOut.classList.add('hidden');
+    vIn.classList.remove('hidden');
     vOutCmd.classList.remove('active');
     vInCmd.classList.add('active');
 }
